@@ -23,7 +23,7 @@ showResp = (res) => {
   <p class="p-3">${date}</p>
   <h3 class="p-3">National Data</h3>
   <div class="row">
-    <div class="col-md-12 m-auto">
+    <div class="col-md-6 m-auto">
       <table class="table table-striped">
         
         <tbody>
@@ -64,10 +64,10 @@ showResp = (res) => {
 <thead class="thead-dark">
 <tr>
   <th scope="col">State</th>
-  <th scope="col">casesOnAdmission</th>
-  <th scope="col">confirmedCases</th>
-  <th scope="col">death</th>
-  <th scope="col">discharged</th>
+  <th scope="col">Cases On Admission</th>
+  <th scope="col">Confirmed Cases</th>
+  <th scope="col">Death</th>
+  <th scope="col">Discharged</th>
   
 </tr>
 </thead>
