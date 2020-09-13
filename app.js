@@ -49,7 +49,7 @@ const weekDay = futureDate.getDay();
 // console.log(weekdays[weekDay])
 // console.log(months[month])
 
-realDate.textContent = `${weekdays[weekDay]} ${date} ${months[month]}, ${year}. ${hours} : ${minutes}.`;
+realDate.textContent = `${weekdays[weekDay]} ${date} ${months[month]}, ${year}. ${hours} : ${minutes}`;
 
  const dates = new Date()
  console.log(dates)
