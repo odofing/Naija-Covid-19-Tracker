@@ -10,8 +10,50 @@ window.addEventListener("DOMContentLoaded", () => {
  
 });
 
-const date = new Date()
+const months = [
+  'January',
+  'February',
+  'March',
+  'April',
+  'May',
+  'June',
+  'July',
+  'August',
+  'September',
+  'October',
+  'November',
+  'December',
+];
+const weekdays = [
+  'Sunday',
+  'Monday',
+  'Tuesday',
+  'Wednesday',
+  'Thursday',
+  'Friday',
+  'Saturday',
+];
 
+// GET REAL DATE
+// let futureDate = new Date(1999, 3, 4, 11, 30, 09);
+let futureDate = new Date();
+
+const realDate = document.getElementById("real-date");
+const year = futureDate.getFullYear();
+const hours = futureDate.getHours();
+const minutes = futureDate.getMinutes();
+const seconds = futureDate.getSeconds();
+const month = futureDate.getMonth();
+const date = futureDate.getDate();
+const weekDay = futureDate.getDay();
+// console.log(weekdays[weekDay])
+// console.log(months[month])
+
+realDate.textContent = `${weekdays[weekDay]} ${date} ${months[month]}, ${year}. ${hours} : ${minutes}.`;
+
+ const dates = new Date()
+ console.log(dates)
+// <p class="p-3">${date}</p>
 
 showResp = (res) => {
  
@@ -20,7 +62,7 @@ showResp = (res) => {
     `
     <main> 
   <div id="container">
-  <p class="p-3">${date}</p>
+  
   <h3 class="p-3">National Data</h3>
   <div class="row">
     <div class="col-md-6 m-auto">
