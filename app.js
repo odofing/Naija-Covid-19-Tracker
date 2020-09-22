@@ -35,7 +35,7 @@ const weekdays = [
 ];
 
 // GET REAL DATE
-// let futureDate = new Date(1999, 3, 4, 11, 30, 09);
+ // let futureDate = new Date(1999, 3, 4, 1, 1, 2);
 let futureDate = new Date();
 
 const realDate = document.getElementById("real-date");
@@ -49,11 +49,17 @@ const weekDay = futureDate.getDay();
 // console.log(weekdays[weekDay])
 // console.log(months[month])
 
-realDate.textContent = `${weekdays[weekDay]} ${date} ${months[month]}, ${year}. ${hours} : ${minutes}.`;
 
- const dates = new Date()
- console.log(dates)
-// <p class="p-3">${date}</p>
+if (seconds < 10) {
+  realDate.textContent = `${weekdays[weekDay]} ${date} ${months[month]}, ${year}: ${hours} : ${minutes}: 0${seconds}`
+} else if ( minutes < 10 ) {
+  realDate.textContent = `${weekdays[weekDay]} ${date} ${months[month]}, ${year}: ${hours} : 0${minutes}: ${seconds}`
+} else if (seconds < 10 && minutes < 10 ) {
+  realDate.textContent = `${weekdays[weekDay]} ${date} ${months[month]}, ${year}: ${hours} : 0${minutes}: 0${seconds}`
+}  else {
+  realDate.textContent = `${weekdays[weekDay]} ${date} ${months[month]}, ${year}: ${hours} :${minutes}: ${seconds}`
+} 
+
 
 showResp = (res) => {
  document.getElementById('container').innerHTML = 
