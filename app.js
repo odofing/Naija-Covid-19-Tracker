@@ -5,7 +5,8 @@ window.addEventListener("DOMContentLoaded", () => {
         .get("https://covidnigeria.herokuapp.com/api")
     //  .then(res => console.log(res))
         .then(res => showResp(res))       
-        .catch(res => console.log('ERROR!!'));
+        .catch( res => showError(res));
+     //   .catch(res => console.log('ERROR!!'));
       
  
 });
@@ -59,6 +60,7 @@ if (seconds < 10) {
 }  else {
   realDate.textContent = `${weekdays[weekDay]} ${date} ${months[month]}, ${year}: ${hours} :${minutes}: ${seconds}`
 } 
+
 
 
 showResp = (res) => {
@@ -391,3 +393,19 @@ showResp = (res) => {
     `
 }
  
+showError = res => {
+  document.getElementById('error').innerHTML = `
+  <div id="error">
+  <main>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 text-center text-danger p-3">
+          <h3 class="lead">Network Error, Please refresh your webpage.
+          if problem persists, please check back later...</h3>
+        </div>
+      </div>
+     
+    </div>
+  </main>
+  `;
+}
