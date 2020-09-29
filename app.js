@@ -2,7 +2,7 @@
 window.addEventListener("DOMContentLoaded", () => {
  
     axios 
-        .get("https://covidnigeria.herokuapp.com/api")
+        .get("https://covidnigeria.herokuapp.com/api", {timeout: 10000})
     //  .then(res => console.log(res))
         .then(res => showResp(res))       
         .catch( res => showError(res));
@@ -409,3 +409,11 @@ showError = res => {
   </main>
   `;
 }
+
+/* SPINNER 
+let spinner = document.querySelectorAll(".sr-only");
+spinner = false;
+if (showResp) {
+spinner === true;
+} 
+*/
