@@ -3,13 +3,17 @@ window.addEventListener("DOMContentLoaded", () => {
  
     axios 
         .get("https://covidnigeria.herokuapp.com/api", {timeout: 10000})
-    //  .then(res => console.log(res))
+    // .then(res => console.log(res))
         .then(res => showResp(res))       
         .catch( res => showError(res));
      //   .catch(res => console.log('ERROR!!'));
+
+     
+
       
  
 });
+
 
 const months = [
   'January',
@@ -37,7 +41,9 @@ const weekdays = [
 
 // GET REAL DATE
  // let futureDate = new Date(1999, 3, 4, 1, 1, 2);
-let futureDate = new Date();
+
+
+ let futureDate = new Date();
 
 const realDate = document.getElementById("real-date");
 const year = futureDate.getFullYear();
@@ -62,27 +68,21 @@ if (seconds < 10) {
 } 
 
 
-
 showResp = (res) => {
  document.getElementById('container').innerHTML = 
     `
     <main> 
   <div id="container">
-  
   <h3 class="p-3">National Data</h3>
   <div class="row">
     <div class="col-md-6 m-auto">
       <table class="table table-striped">
-        
         <tbody>
           <tr>
-           
            <td>Total Discharged</td>
             <td class="text-success font-weight-bold">${res.data.data.discharged}</td>
-          
           </tr>
           <tr>
-           
             <td>Total Deaths</td>
             <td class="text-danger font-weight-bold">${res.data.data.death}</td>
            
@@ -393,6 +393,7 @@ showResp = (res) => {
     `
 }
  
+
 showError = res => {
   document.getElementById('error').innerHTML = `
   <div id="error">
@@ -409,6 +410,11 @@ showError = res => {
   </main>
   `;
 }
+
+
+
+
+
 
 /* SPINNER 
 let spinner = document.querySelectorAll(".sr-only");
