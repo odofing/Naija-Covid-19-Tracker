@@ -4,16 +4,11 @@ window.addEventListener("DOMContentLoaded", () => {
     axios 
         .get("https://covidnigeria.herokuapp.com/api", {timeout: 10000})
     // .then(res => console.log(res))
-        .then(res => showResp(res))       
+        .then(res => showResp(res))  
         .catch( res => showError(res));
-     //   .catch(res => console.log('ERROR!!'));
-
-     
-
-      
+     //   .catch(res => console.log('ERROR!!'));  
  
 });
-
 
 const months = [
   'January',
@@ -38,6 +33,7 @@ const weekdays = [
   'Friday',
   'Saturday',
 ];
+
 
 // GET REAL DATE
  // let futureDate = new Date(1999, 3, 4, 1, 1, 2);
@@ -410,16 +406,3 @@ showError = res => {
   </main>
   `;
 }
-
-
-
-
-
-
-/* SPINNER 
-let spinner = document.querySelectorAll(".sr-only");
-spinner = false;
-if (showResp) {
-spinner === true;
-} 
-*/
