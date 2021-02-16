@@ -1,16 +1,3 @@
-    // USING AXIOS
-    
-// window.addEventListener("DOMContentLoaded", () => {
- 
-//     axios 
-//        .get("https://covidnigeria.herokuapp.com/api")
-//    //  .then(res => console.log(res))
-//         .then(res => showResp(res))  
-//         .catch( res => showError(res));
-//      //   .catch(res => console.log('ERROR!!'));  
- 
-// });
-
 const url = 
 "https://covidnigeria.herokuapp.com/api"; 
 
@@ -22,11 +9,27 @@ const getApi = async (url) => {
 	// Storing data in form of JSON 
 	const apiData = await res.json(); 
    console.log(apiData.data); 
-
 	if (res) { 
 		hideSpinner(); 
 	} 
-  
+
+  // MAP STATES TO UI
+  const stateUI = document.getElementById('states')
+  const states = apiData.data.states.map(state => {
+  //  console.log(state)
+    const tr = document.createElement('tr');
+    tr.innerHTML =  
+`      <tr class="text-center">
+        <th scope="row">${state.state}</th>
+        <td>${state.casesOnAdmission}</td>
+        <td>${state.confirmedCases}</td>
+        <td>${state.death}</td>
+        <td>${state.discharged}</td>
+        </tr>
+`
+stateUI.appendChild(tr);
+})
+
 document.getElementById('container').innerHTML = 
     `
     <main> 
@@ -65,319 +68,8 @@ document.getElementById('container').innerHTML =
     </div>
    
   </div>
-  <table class="table table-striped">
-  <h3 class="state-data m-auto p-3">Data by State</h3>
-<thead class="thead-dark">
-<tr class="text-center">
-  <th scope="col">State</th>
-  <th scope="col">Cases On Admission</th>
-  <th scope="col">Confirmed Cases</th>
-  <th scope="col">Death</th>
-  <th scope="col">Discharged</th>
-  
-</tr>
-</thead>
-<tbody>
 
-
-<tr class="text-center justify-content-center">
-<th scope="row">${apiData.data.states[0].state}</th>
-  <td>${apiData.data.states[0].casesOnAdmission}</td>
-  <td>${apiData.data.states[0].confirmedCases}</td>
-  <td>${apiData.data.states[0].death}</td>
-  <td>${apiData.data.states[0].discharged}</td>
-</tr>
-
-<tr class="text-center justify-content-center">
-<th scope="row">${apiData.data.states[1].state}</th>
-  <td>${apiData.data.states[1].casesOnAdmission}</td>
-  <td>${apiData.data.states[1].confirmedCases}</td>
-  <td>${apiData.data.states[1].death}</td>
-  <td>${apiData.data.states[1].discharged}</td>
-</tr>
-
-<tr class="text-center justify-content-center">
-<th scope="row">${apiData.data.states[2].state}</th>
-  <td>${apiData.data.states[2].casesOnAdmission}</td>
-  <td>${apiData.data.states[2].confirmedCases}</td>
-  <td>${apiData.data.states[2].death}</td>
-  <td>${apiData.data.states[2].discharged}</td>
-</tr>
-
-<tr class="text-center justify-content-center">
-<th scope="row">${apiData.data.states[3].state}</th>
-  <td>${apiData.data.states[3].casesOnAdmission}</td>
-  <td>${apiData.data.states[3].confirmedCases}</td>
-  <td>${apiData.data.states[3].death}</td>
-  <td>${apiData.data.states[3].discharged}</td>
-</tr>
-
-<tr class="text-center justify-content-center">
-<th scope="row">${apiData.data.states[4].state}</th>
-  <td>${apiData.data.states[4].casesOnAdmission}</td>
-  <td>${apiData.data.states[4].confirmedCases}</td>
-  <td>${apiData.data.states[4].death}</td>
-  <td>${apiData.data.states[4].discharged}</td>
-</tr>
-
-<tr class="text-center justify-content-center">
-<th scope="row">${apiData.data.states[5].state}</th>
-  <td>${apiData.data.states[5].casesOnAdmission}</td>
-  <td>${apiData.data.states[5].confirmedCases}</td>
-  <td>${apiData.data.states[5].death}</td>
-  <td>${apiData.data.states[5].discharged}</td>
-</tr>
-
-<tr class="text-center justify-content-center">
-<th scope="row">${apiData.data.states[6].state}</th>
-  <td>${apiData.data.states[6].casesOnAdmission}</td>
-  <td>${apiData.data.states[6].confirmedCases}</td>
-  <td>${apiData.data.states[6].death}</td>
-  <td>${apiData.data.states[6].discharged}</td>
-</tr>
-
-<tr class="text-center justify-content-center">
-<th scope="row">${apiData.data.states[7].state}</th>
-  <td>${apiData.data.states[7].casesOnAdmission}</td>
-  <td>${apiData.data.states[7].confirmedCases}</td>
-  <td>${apiData.data.states[7].death}</td>
-  <td>${apiData.data.states[7].discharged}</td>
-</tr>
-
-<tr class="text-center justify-content-center">
-<th scope="row">${apiData.data.states[8].state}</th>
-  <td>${apiData.data.states[8].casesOnAdmission}</td>
-  <td>${apiData.data.states[8].confirmedCases}</td>
-  <td>${apiData.data.states[8].death}</td>
-  <td>${apiData.data.states[8].discharged}</td>
-</tr>
-
-<tr class="text-center justify-content-center">
-<th scope="row">${apiData.data.states[9].state}</th>
-  <td>${apiData.data.states[9].casesOnAdmission}</td>
-  <td>${apiData.data.states[9].confirmedCases}</td>
-  <td>${apiData.data.states[9].death}</td>
-  <td>${apiData.data.states[9].discharged}</td>
-</tr>
-
-<tr class="text-center justify-content-center">
-<th scope="row">${apiData.data.states[10].state}</th>
-  <td>${apiData.data.states[10].casesOnAdmission}</td>
-  <td>${apiData.data.states[10].confirmedCases}</td>
-  <td>${apiData.data.states[10].death}</td>
-  <td>${apiData.data.states[10].discharged}</td>
-</tr>
-
-<tr class="text-center justify-content-center">
-<th scope="row">${apiData.data.states[11].state}</th>
-  <td>${apiData.data.states[11].casesOnAdmission}</td>
-  <td>${apiData.data.states[11].confirmedCases}</td>
-  <td>${apiData.data.states[11].death}</td>
-  <td>${apiData.data.states[11].discharged}</td>
-</tr>
-
-<tr class="text-center justify-content-center">
-<th scope="row">${apiData.data.states[12].state}</th>
-  <td>${apiData.data.states[12].casesOnAdmission}</td>
-  <td>${apiData.data.states[12].confirmedCases}</td>
-  <td>${apiData.data.states[12].death}</td>
-  <td>${apiData.data.states[12].discharged}</td>
-</tr>
-
-<tr class="text-center justify-content-center">
-<th scope="row">${apiData.data.states[13].state}</th>
-  <td>${apiData.data.states[13].casesOnAdmission}</td>
-  <td>${apiData.data.states[13].confirmedCases}</td>
-  <td>${apiData.data.states[13].death}</td>
-  <td>${apiData.data.states[13].discharged}</td>
-</tr>
-
-<tr class="text-center justify-content-center">
-<th scope="row">${apiData.data.states[14].state}</th>
-  <td>${apiData.data.states[14].casesOnAdmission}</td>
-  <td>${apiData.data.states[14].confirmedCases}</td>
-  <td>${apiData.data.states[14].death}</td>
-  <td>${apiData.data.states[14].discharged}</td>
-</tr>
-
-<tr class="text-center justify-content-center">
-<th scope="row">${apiData.data.states[15].state}</th>
-  <td>${apiData.data.states[15].casesOnAdmission}</td>
-  <td>${apiData.data.states[15].confirmedCases}</td>
-  <td>${apiData.data.states[15].death}</td>
-  <td>${apiData.data.states[15].discharged}</td>
-</tr>
-
-<tr class="text-center justify-content-center">
-<th scope="row">${apiData.data.states[16].state}</th>
-  <td>${apiData.data.states[16].casesOnAdmission}</td>
-  <td>${apiData.data.states[16].confirmedCases}</td>
-  <td>${apiData.data.states[16].death}</td>
-  <td>${apiData.data.states[16].discharged}</td>
-</tr>
-
-<tr class="text-center justify-content-center">
-<th scope="row">${apiData.data.states[17].state}</th>
-  <td>${apiData.data.states[17].casesOnAdmission}</td>
-  <td>${apiData.data.states[17].confirmedCases}</td>
-  <td>${apiData.data.states[17].death}</td>
-  <td>${apiData.data.states[17].discharged}</td>
-</tr>
-
-<tr class="text-center justify-content-center">
-<th scope="row">${apiData.data.states[18].state}</th>
-  <td>${apiData.data.states[18].casesOnAdmission}</td>
-  <td>${apiData.data.states[18].confirmedCases}</td>
-  <td>${apiData.data.states[18].death}</td>
-  <td>${apiData.data.states[18].discharged}</td>
-</tr>
-
-<tr class="text-center justify-content-center">
-<th scope="row">${apiData.data.states[19].state}</th>
-  <td>${apiData.data.states[19].casesOnAdmission}</td>
-  <td>${apiData.data.states[19].confirmedCases}</td>
-  <td>${apiData.data.states[19].death}</td>
-  <td>${apiData.data.states[19].discharged}</td>
-</tr>
-
-<tr class="text-center justify-content-center">
-<th scope="row">${apiData.data.states[20].state}</th>
-  <td>${apiData.data.states[20].casesOnAdmission}</td>
-  <td>${apiData.data.states[20].confirmedCases}</td>
-  <td>${apiData.data.states[20].death}</td>
-  <td>${apiData.data.states[20].discharged}</td>
-</tr>
-
-<tr class="text-center justify-content-center">
-<th scope="row">${apiData.data.states[21].state}</th>
-  <td>${apiData.data.states[21].casesOnAdmission}</td>
-  <td>${apiData.data.states[21].confirmedCases}</td>
-  <td>${apiData.data.states[21].death}</td>
-  <td>${apiData.data.states[21].discharged}</td>
-</tr>
-
-<tr class="text-center justify-content-center">
-<th scope="row">${apiData.data.states[22].state}</th>
-  <td>${apiData.data.states[22].casesOnAdmission}</td>
-  <td>${apiData.data.states[22].confirmedCases}</td>
-  <td>${apiData.data.states[22].death}</td>
-  <td>${apiData.data.states[22].discharged}</td>
-</tr>
-
-<tr class="text-center justify-content-center">
-<th scope="row">${apiData.data.states[23].state}</th>
-  <td>${apiData.data.states[23].casesOnAdmission}</td>
-  <td>${apiData.data.states[23].confirmedCases}</td>
-  <td>${apiData.data.states[23].death}</td>
-  <td>${apiData.data.states[23].discharged}</td>
-</tr>
-
-<tr class="text-center justify-content-center">
-<th scope="row">${apiData.data.states[24].state}</th>
-  <td>${apiData.data.states[24].casesOnAdmission}</td>
-  <td>${apiData.data.states[24].confirmedCases}</td>
-  <td>${apiData.data.states[24].death}</td>
-  <td>${apiData.data.states[24].discharged}</td>
-</tr>
-
-<tr class="text-center justify-content-center">
-<th scope="row">${apiData.data.states[25].state}</th>
-  <td>${apiData.data.states[25].casesOnAdmission}</td>
-  <td>${apiData.data.states[25].confirmedCases}</td>
-  <td>${apiData.data.states[25].death}</td>
-  <td>${apiData.data.states[25].discharged}</td>
-</tr>
-
-<tr class="text-center justify-content-center">
-<th scope="row">${apiData.data.states[26].state}</th>
-  <td>${apiData.data.states[26].casesOnAdmission}</td>
-  <td>${apiData.data.states[26].confirmedCases}</td>
-  <td>${apiData.data.states[26].death}</td>
-  <td>${apiData.data.states[26].discharged}</td>
-</tr>
-
-<tr class="text-center justify-content-center">
-<th scope="row">${apiData.data.states[27].state}</th>
-  <td>${apiData.data.states[27].casesOnAdmission}</td>
-  <td>${apiData.data.states[27].confirmedCases}</td>
-  <td>${apiData.data.states[27].death}</td>
-  <td>${apiData.data.states[27].discharged}</td>
-</tr>
-
-<tr class="text-center justify-content-center">
-<th scope="row">${apiData.data.states[28].state}</th>
-  <td>${apiData.data.states[28].casesOnAdmission}</td>
-  <td>${apiData.data.states[28].confirmedCases}</td>
-  <td>${apiData.data.states[28].death}</td>
-  <td>${apiData.data.states[28].discharged}</td>
-</tr>
-
-<tr class="text-center justify-content-center">
-<th scope="row">${apiData.data.states[29].state}</th>
-  <td>${apiData.data.states[29].casesOnAdmission}</td>
-  <td>${apiData.data.states[29].confirmedCases}</td>
-  <td>${apiData.data.states[29].death}</td>
-  <td>${apiData.data.states[29].discharged}</td>
-</tr>
-
-<tr class="text-center justify-content-center">
-<th scope="row">${apiData.data.states[30].state}</th>
-  <td>${apiData.data.states[30].casesOnAdmission}</td>
-  <td>${apiData.data.states[30].confirmedCases}</td>
-  <td>${apiData.data.states[30].death}</td>
-  <td>${apiData.data.states[30].discharged}</td>
-</tr>
-
-<tr class="text-center justify-content-center">
-<th scope="row">${apiData.data.states[31].state}</th>
-  <td>${apiData.data.states[31].casesOnAdmission}</td>
-  <td>${apiData.data.states[31].confirmedCases}</td>
-  <td>${apiData.data.states[31].death}</td>
-  <td>${apiData.data.states[31].discharged}</td>
-</tr>
-
-<tr class="text-center justify-content-center">
-<th scope="row">${apiData.data.states[32].state}</th>
-  <td>${apiData.data.states[32].casesOnAdmission}</td>
-  <td>${apiData.data.states[32].confirmedCases}</td>
-  <td>${apiData.data.states[32].death}</td>
-  <td>${apiData.data.states[32].discharged}</td>
-</tr>
-
-<tr class="text-center justify-content-center">
-<th scope="row">${apiData.data.states[33].state}</th>
-  <td>${apiData.data.states[33].casesOnAdmission}</td>
-  <td>${apiData.data.states[33].confirmedCases}</td>
-  <td>${apiData.data.states[33].death}</td>
-  <td>${apiData.data.states[33].discharged}</td>
-</tr>
-
-<tr class="text-center justify-content-center">
-<th scope="row">${apiData.data.states[34].state}</th>
-  <td>${apiData.data.states[34].casesOnAdmission}</td>
-  <td>${apiData.data.states[34].confirmedCases}</td>
-  <td>${apiData.data.states[34].death}</td>
-  <td>${apiData.data.states[34].discharged}</td>
-</tr>
-
-<tr class="text-center justify-content-center">
-<th scope="row">${apiData.data.states[35].state}</th>
-  <td>${apiData.data.states[35].casesOnAdmission}</td>
-  <td>${apiData.data.states[35].confirmedCases}</td>
-  <td>${apiData.data.states[35].death}</td>
-  <td>${apiData.data.states[35].discharged}</td>
-</tr>
-
-<tr class="text-center justify-content-center">
-<th scope="row">${apiData.data.states[36].state}</th>
-  <td>${apiData.data.states[36].casesOnAdmission}</td>
-  <td>${apiData.data.states[36].confirmedCases}</td>
-  <td>${apiData.data.states[36].death}</td>
-  <td>${apiData.data.states[36].discharged}</td>
-</tr>
-
-</tbody>
-</table>
+ 
 </div>
 </main>
     `
@@ -391,11 +83,6 @@ function hideSpinner() {
 	document.getElementById('spinner') 
 			.style.display = 'none'; 
 } 
-
-
-
-
-
 
 const months = [
   'January',
@@ -441,19 +128,17 @@ const weekDay = futureDate.getDay();
 
 
 if (seconds < 10) {
-  realDate.textContent = `${weekdays[weekDay]} ${date} ${months[month]}, ${year}: ${hours} : ${minutes}`
+  realDate.textContent = `${weekdays[weekDay]} ${date} ${months[month]}, ${year}.  ${hours} : ${minutes}`
 } else if ( minutes < 10 ) {
-  realDate.textContent = `${weekdays[weekDay]} ${date} ${months[month]}, ${year}: ${hours} : 0${minutes}`
+  realDate.textContent = `${weekdays[weekDay]} ${date} ${months[month]}, ${year}.  ${hours} : 0${minutes}`
 } else if (seconds < 10 && minutes < 10 ) {
-  realDate.textContent = `${weekdays[weekDay]} ${date} ${months[month]}, ${year}: ${hours} : 0${minutes}`
+  realDate.textContent = `${weekdays[weekDay]} ${date} ${months[month]}, ${year}.  ${hours} : 0${minutes}`
 }  else {
-  realDate.textContent = `${weekdays[weekDay]} ${date} ${months[month]}, ${year}: ${hours} : ${minutes}`
+  realDate.textContent = `${weekdays[weekDay]} ${date} ${months[month]}, ${year}.  ${hours} : ${minutes}`
 } 
 
- 
 
- 
-
+// error message
 showError = res => {
   document.getElementById('error').innerHTML = `
   <div id="error">

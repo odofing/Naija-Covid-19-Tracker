@@ -1,0 +1,12 @@
+    // USING AXIOS
+    
+// window.addEventListener("DOMContentLoaded", () => {
+ 
+//     axios 
+//        .get("https://covidnigeria.herokuapp.com/api")
+//    //  .then(res => console.log(res))
+//         .then(res => showResp(res))  
+//         .catch( res => showError(res));
+//      //   .catch(res => console.log('ERROR!!'));  
+ 
+// });

@@ -14,8 +14,8 @@
 
 <body>
   
-  <header class="header">
-    <h1 class="lead text-center text-white bg-dark p-3">Naija Covid-19 Tracker</h1>
+  <header class="header text-center text-white bg-dark">
+    <h1>Naija Covid-19 Tracker</h1>
   </header>
 
   <main>
@@ -60,14 +60,29 @@
     
 
 
-    <div id="container">
-      
-    </div>
+    <div id="container">  </div>
+
+    
+        <table class="table table-striped"> 
+        <h3 class="state-data m-auto p-3">Data by State</h3>
+      <thead class="thead-dark">
+      <tr class="text-center">
+        <th scope="col">State</th>
+        <th scope="col">Cases On Admission</th>
+        <th scope="col">Confirmed Cases</th>
+        <th scope="col">Death</th>
+        <th scope="col">Discharged</th>
+      </tr>
+      </thead>
+      <tbody id="states" class="text-center">
+      </tbody>
+      </table>
+    
     <footer id="mainFooter" class="text-center bg-dark text-white">
       <div class="container">
         <div class="row">
           <div class="col-md-6">
-            <p class="p-2 text-center">Created by <a href="https://twitter.com/G_ODOFIN" target="_blank">OdofinG</a></p>
+            <p class="p-2 text-center">Created by <a href="https://www.odofing.com" target="_blank">OdofinG</a></p>
           </div>
         </div>
       </div>
